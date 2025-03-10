@@ -4,7 +4,21 @@
 My motivation for selecting Amazon survey data for my Malloy SQL project stems from several compelling factors. First, the sheer volume of data provides an ideal environment to leverage Malloy's advanced querying capabilities. Amazon's surveys capture responses from an exceptionally diverse user base, offering insights across varied demographics including income ranges and age groups. This breadth of representation creates rich opportunities for multidimensional analysis that would be difficult to achieve with more limited datasets.
 The comprehensive nature of Amazon's survey data—covering both customer attributes and user behaviors—presents valuable opportunities to identify meaningful patterns and correlations. This aligns perfectly with Malloy's strengths in data exploration and visualization. Additionally, I find Amazon's ecosystem particularly fascinating, making the project both technically valuable and personally engaging as I work with data from one of the world's most influential e-commerce platforms.
 ## Summary of Findings
-Summarize the findings of your analysis. Try to be as interesting as possible. Don't share everything, just the most interesting things. Required. Place an image of 2-4 of your visualizations here. To do this. Save the screenshot as an image file, place it in the same directory. Check out this link for help on showing your image directly in this file: https://www.docstomarkdown.pro/display-local-images-in-markdown/
+<img width="278" alt="Image" src="https://github.com/user-attachments/assets/8242b570-49f6-401a-b86d-2e35d96232e8" />
+
+<img width="260" alt="Image" src="https://github.com/user-attachments/assets/7b860a0c-c0bb-4901-ab3a-b85df67f1e3b" />
+
+<img width="272" alt="Image" src="https://github.com/user-attachments/assets/c6f152fd-be3a-4b5d-a84d-3bd79c59164b" />
+
+<img width="624" alt="Image" src="https://github.com/user-attachments/assets/f97eaf96-ecfc-44a4-9a6e-ec93ed7db261" />
+
+<img width="289" alt="Image" src="https://github.com/user-attachments/assets/7fe0144c-e0d0-4dca-bad1-5ba966675780" />
+
+<img width="666" alt="Image" src="https://github.com/user-attachments/assets/b50237cb-1d28-40ed-ab57-854a9ac35cda" />
+
+<img width="487" alt="Image" src="https://github.com/user-attachments/assets/4d74055d-e5bc-408b-b3f1-c0e5913b13bf" />
+
+<img width="231" alt="Image" src="https://github.com/user-attachments/assets/4cdc543b-dfee-4694-a338-6bb58256896b" />
 ## Directions on How to Run it Yourself
  1. Click on this link [here](https://github.com/LukasNichols/SpokaneLibraryWeather)
  2. Click on the file that ends with '.malloyNB'.
