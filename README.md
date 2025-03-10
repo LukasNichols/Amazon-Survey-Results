@@ -19,6 +19,7 @@ The comprehensive nature of Amazon's survey data—covering both customer attrib
 <img width="487" alt="Image" src="https://github.com/user-attachments/assets/4d74055d-e5bc-408b-b3f1-c0e5913b13bf" />
 
 <img width="231" alt="Image" src="https://github.com/user-attachments/assets/4cdc543b-dfee-4694-a338-6bb58256896b" />
+
 ## Directions on How to Run it Yourself
  1. Click on this link [here](https://github.com/LukasNichols/SpokaneLibraryWeather)
  2. Click on the file that ends with '.malloyNB'.
