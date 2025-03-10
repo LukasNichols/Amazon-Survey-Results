@@ -1,0 +1,286 @@
+>>>markdown
+## Amazon Survery Results
+By: Lukas Nichols
+>>>malloy
+ Source: AmazonSurvey is duckdb.table("C:/Users/Lukas Nichols/Downloads/MSBA622/Amazon_Transactions/dataverse_files/amazonpurchases.csv") extend{
+
+
+ } 
+
+Source: Survey is duckdb.table("C:/Users/Lukas Nichols/Downloads/MSBA622/Amazon_Transactions/dataverse_files/survey.csv") extend{
+
+join_one: AmazonSurvey on `Survey ResponseID` = AmazonSurvey.`Survey ResponseID`
+
+
+}
+
+
+
+>>>markdown
+### Purchase behavior by demographic groups
+>>>malloy
+run: Survey -> {
+  group_by: `Q-demos-gender`
+  aggregate: 
+    total_users is count()
+    avg_quantity is AmazonSurvey.Quantity.avg()
+    total_purchases is AmazonSurvey.Quantity.sum()
+  nest: frequency_breakdown is {
+    group_by: `Q-amazon-use-how-oft`
+    aggregate: user_count is count()
+  }
+}
+>>>markdown
+### Income impact on purchasing behavior
+>>>malloy
+run: Survey -> {
+  group_by: `Q-demos-income`
+  aggregate: 
+    user_count is count()
+    avg_quantity is AmazonSurvey.Quantity.avg()
+  order_by: `Q-demos-income`
+}
+>>>markdown
+### Age group analysis with purchase frequency
+>>>malloy
+run: Survey -> {
+  group_by: `Q-demos-age`
+  aggregate: 
+    user_count is count()
+  nest: usage_pattern is {
+    group_by: `Q-amazon-use-how-oft`
+    aggregate: 
+      frequency_count is count()
+      avg_purchases is AmazonSurvey.Quantity.avg()
+  }
+}
+>>>markdown
+### Education level and income correlation with Amazon usage
+>>>malloy
+run: Survey -> {
+  group_by: 
+    `Q-demos-education`
+    `Q-demos-income`
+  aggregate: user_count is count()
+  nest: amazon_usage is {
+    group_by: `Q-amazon-use-how-oft`
+    aggregate: usage_count is count()
+  }
+}
+>>>markdown
+### Household size impact on purchase quantity
+>>>malloy
+run: Survey -> {
+  group_by: `Q-amazon-use-hh-size`
+  aggregate: 
+    household_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+    total_purchase_quantity is AmazonSurvey.Quantity.sum()
+  order_by: `Q-amazon-use-hh-size`
+}
+>>>markdown
+### High value customers
+>>>malloy
+run: Survey -> {
+  group_by: 
+    `Q-demos-gender`
+    `Q-demos-age`
+    `Q-demos-income`
+  aggregate: 
+    user_count is count()
+    avg_purchase_per_user is AmazonSurvey.Quantity.avg()
+  order_by: avg_purchase_per_user desc
+}
+>>>markdown
+### Purchase behavior by education and gender
+>>>malloy
+run: Survey -> {
+  group_by: 
+    `Q-demos-education`
+    `Q-demos-gender`
+  aggregate: 
+    user_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+    total_items_purchased is AmazonSurvey.Quantity.sum()
+  order_by: total_items_purchased desc
+}
+>>>markdown
+### Income vs household size analysis
+>>>malloy
+run: Survey -> {
+  group_by: 
+    `Q-demos-income`
+    `Q-amazon-use-hh-size`
+  aggregate: 
+    user_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+  order_by: `Q-demos-income`, `Q-amazon-use-hh-size`
+}
+>>>markdown
+### Customer demographics by age groups
+>>>malloy
+run: Survey -> {
+  group_by: `Q-demos-age`
+  aggregate: 
+    user_count is count()
+    avg_quantity is AmazonSurvey.Quantity.avg()
+  nest: by_gender is {
+    group_by: `Q-demos-gender`
+    aggregate: 
+      gender_count is count()
+      gender_avg_quantity is AmazonSurvey.Quantity.avg()
+  }
+  order_by: avg_quantity desc
+}
+>>>markdown
+### Household size vs purchase frequency correlation
+>>>malloy
+run: Survey -> {
+  group_by: `Q-amazon-use-hh-size`
+  aggregate: 
+    user_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+  order_by: `Q-amazon-use-hh-size`
+}
+>>>markdown
+### Purchase behavior comparison between household sizes
+>>>malloy
+run: Survey -> {
+  group_by: `Q-amazon-use-hh-size`
+  aggregate: 
+    user_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+    total_items_purchased is AmazonSurvey.Quantity.sum()
+  order_by: 
+    avg_purchase_quantity desc
+}
+>>>markdown
+### Top customer segments by purchase quantity
+>>>malloy
+run: Survey -> {
+  group_by: 
+    `Q-demos-gender`
+    `Q-demos-age`
+    `Q-demos-education`
+  aggregate: 
+    user_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+  order_by: avg_purchase_quantity desc
+  limit: 10
+}
+>>>markdown
+### Age vs education cross analysis with purchase bheavior
+>>>malloy
+run: Survey -> {
+  group_by: 
+    `Q-demos-age`
+    `Q-demos-education`
+  aggregate: 
+    user_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+  order_by: avg_purchase_quantity desc
+}
+>>>markdown
+### Comparing purchases quantities by usage frequency
+>>>malloy
+run: Survey -> {
+  group_by: `Q-amazon-use-how-oft`
+  aggregate: 
+    frequency_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+    total_purchase_quantity is AmazonSurvey.Quantity.sum()
+  order_by: avg_purchase_quantity desc
+}
+>>>malloy
+run: Survey -> {
+  group_by: `Q-demos-income`
+  aggregate: 
+    user_count is count()
+    avg_purchase_quantity is AmazonSurvey.Quantity.avg()
+    total_purchase_quantity is AmazonSurvey.Quantity.sum()
+  order_by: `Q-demos-income`
+}
+>>>markdown
+### Purchase quantity by gender and frequency of use
+>>>malloy
+run: Survey -> {
+  group_by: 
+    `Q-demos-gender`
+    `Q-amazon-use-how-oft`
+  aggregate: 
+    respondent_count is count()
+    avg_items_per_order is AmazonSurvey.Quantity.avg()
+    max_items_in_order is AmazonSurvey.Quantity.max()
+  order_by: avg_items_per_order desc
+}
+>>>markdown
+### Household size influence on purchase patterns
+>>>malloy
+run: Survey -> {
+  group_by: `Q-amazon-use-hh-size`
+  aggregate: 
+    household_count is count()
+    avg_purchase_size is AmazonSurvey.Quantity.avg()
+    min_purchase is AmazonSurvey.Quantity.min()
+    max_purchase is AmazonSurvey.Quantity.max()
+  order_by: `Q-amazon-use-hh-size`
+}
+>>>markdown
+### Count of repondents by purchase frequency
+>>>malloy
+# bar_chart
+run: Survey -> {
+  group_by: `Q-amazon-use-how-oft`
+  aggregate: respondent_count is count()
+}
+>>>markdown
+### Average purchase quantity by household size
+>>>malloy
+# bar_chart
+run: Survey -> {
+  group_by: `Q-amazon-use-hh-size`
+  aggregate: avg_purchase is AmazonSurvey.Quantity.avg()
+}
+>>>markdown
+### Count by education level
+>>>malloy
+# bar_chart
+run: Survey -> {
+  group_by: `Q-demos-education`
+  aggregate: respondent_count is count()
+}
+>>>markdown
+### Average purchase by income bracket
+>>>malloy
+# bar_chart
+run: Survey -> {
+  group_by: `Q-demos-income`
+  aggregate: avg_purchase is AmazonSurvey.Quantity.avg()
+}
+>>>markdown
+### Gender distribution of respondents
+>>>malloy
+# bar_chart
+run: Survey -> {
+  group_by: `Q-demos-gender`
+  aggregate: respondent_count is count()
+}
+>>>markdown
+### Maximum purchase quantity by usage frequency
+>>>malloy
+# bar_chart
+run: Survey -> {
+  group_by: `Q-amazon-use-how-oft`
+  aggregate: max_purchase is AmazonSurvey.Quantity.max()
+}
+>>>markdown
+### Education level distribution by usage frequency
+>>>malloy
+# bar_chart
+run: Survey -> {
+  group_by: 
+    `Q-amazon-use-how-oft`
+    `Q-demos-education`
+  aggregate: respondent_count is count()
+}
+>>>malloy
