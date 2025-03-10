@@ -4,20 +4,28 @@
 My motivation for selecting Amazon survey data for my Malloy SQL project stems from several compelling factors. First, the sheer volume of data provides an ideal environment to leverage Malloy's advanced querying capabilities. Amazon's surveys capture responses from an exceptionally diverse user base, offering insights across varied demographics including income ranges and age groups. This breadth of representation creates rich opportunities for multidimensional analysis that would be difficult to achieve with more limited datasets.
 The comprehensive nature of Amazon's survey data—covering both customer attributes and user behaviors—presents valuable opportunities to identify meaningful patterns and correlations. This aligns perfectly with Malloy's strengths in data exploration and visualization. Additionally, I find Amazon's ecosystem particularly fascinating, making the project both technically valuable and personally engaging as I work with data from one of the world's most influential e-commerce platforms.
 ## Summary of Findings
+### This graph shows the respondent count of which sex is apart of the survey. 
 <img width="278" alt="Image" src="https://github.com/user-attachments/assets/8242b570-49f6-401a-b86d-2e35d96232e8" />
 
+### This graphs shows the education level of the respondents.
 <img width="260" alt="Image" src="https://github.com/user-attachments/assets/7b860a0c-c0bb-4901-ab3a-b85df67f1e3b" />
 
+### This graph shows the amount of respondents for how many times they order something off of Amazon. 
 <img width="272" alt="Image" src="https://github.com/user-attachments/assets/c6f152fd-be3a-4b5d-a84d-3bd79c59164b" />
 
+### This Malloy query result shows which demographic uses Amazon the most. 
 <img width="624" alt="Image" src="https://github.com/user-attachments/assets/f97eaf96-ecfc-44a4-9a6e-ec93ed7db261" />
 
+### This graph is about what household size orders Amazon the most. 
 <img width="289" alt="Image" src="https://github.com/user-attachments/assets/7fe0144c-e0d0-4dca-bad1-5ba966675780" />
 
+### This Malloy query result shows which demographic out of gender and education uses Amazon the most. 
 <img width="666" alt="Image" src="https://github.com/user-attachments/assets/b50237cb-1d28-40ed-ab57-854a9ac35cda" />
 
+### This Malloy query result shows which demographic out of education and income uses Amazon the most. 
 <img width="487" alt="Image" src="https://github.com/user-attachments/assets/4d74055d-e5bc-408b-b3f1-c0e5913b13bf" />
 
+### This Malloy query shows the user count and average Amazon quantity order.
 <img width="231" alt="Image" src="https://github.com/user-attachments/assets/4cdc543b-dfee-4694-a338-6bb58256896b" />
 
 ## Directions on How to Run it Yourself
